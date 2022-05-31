@@ -9,10 +9,10 @@ namespace py = pybind11;
 
 std::vector<int> POSSIBLE_WORD_COUNT = {12, 15, 18, 21, 24};
 
+#include <iostream>
 
 std::string Bip39::generate_entropy() const {
-	std::string random_bytes_hex = generate_random_bytes(this->entropy_length);
-
+	std::string random_bytes_hex = generate_random_bytes(this->entropy_length / 8);
 	return hex_str_to_bin_str(random_bytes_hex);
 }
 
@@ -32,26 +32,24 @@ std::string Bip39::generate_checksum(std::string& entropy_string) const {
 	return result;
 }
 
+#include <iostream>
 
 std::string Bip39::generate_mnemonic(std::string& checksum_string) const {
 	std::vector<std::string> v;
-
-	int v_index = -1;
-	for (int i = 0; i < checksum_string.length(); i++) {
-		if (i % (checksum_string.length() / 11) == 0) {
-			v.push_back("");
-			v_index += 1;
-		}
-		v[v_index] += checksum_string[i];
-		
+	auto words_dict = get_words(this->langage_);
+	
+	for (int i = 0; i < checksum_string.length(); i += 11) {
+		auto sub = checksum_string.substr(i, 11);
+		auto word = words_dict[std::stoi(sub, nullptr, 2)];
+		v.push_back(word);
 	}
 
-	std::for_each(begin(v), end(v),
-		[&](std::string s){
-			// Conversion puis wordlist
-	});
+	std::string result = std::accumulate(std::next(begin(v)), end(v), v[0],
+				[](std::string a, std::string b) {
+					return std::move(a) + " " + b;
+				});
 
-	return checksum_string;
+	return result;
 }
 
 

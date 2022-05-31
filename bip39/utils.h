@@ -3,7 +3,7 @@
 #include <random>
 #include <vector>
 #include <algorithm>
-
+#include <fstream>
 
 using random_bytes_engine = std::independent_bits_engine<
     std::default_random_engine, CHAR_BIT, unsigned char>;
@@ -52,4 +52,31 @@ std::string hex_str_to_bin_str(const std::string& hex) {
 		bin += hex_char_to_bin(hex[i]);
 	}
 	return bin;
+}
+
+std::vector<std::string> get_words(std::string langage) {
+
+	std::string file_name = "wordlists/";
+	if (langage == "fr") {
+		file_name += "french.txt";
+	}
+	else {
+		file_name += "english.txt";
+	}
+	std::vector<std::string> words;
+
+	std::ifstream input_stream(file_name);
+	if (input_stream.is_open()) {
+		std::string word;
+
+		while (std::getline(input_stream, word)) {
+			words.push_back(word);
+		}
+		input_stream.close();
+	}
+	else {
+
+	}
+
+	return words;
 }
