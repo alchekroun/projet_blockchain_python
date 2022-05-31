@@ -19,13 +19,13 @@ class Bip39 {
          * @brief Generate the checksum string and append it to the initial entropy
          * @return String of the entropy with the checksum added.
          */
-	std::string generate_checksum(std::string& p) const;
+	std::string generate_checksum(std::string& entropy_string) const;
 	
 	/**
          * @brief Generate the mnemonic sentence
          * @return String of the mnemonic sentence.
-         */	
-	std::string generate_mnemonic() const;
+         */
+	std::string generate_mnemonic(std::string& checksum_string) const;
 
 public:
 	Bip39(std::string langage = "en") : langage_(langage) {};
