@@ -3,6 +3,9 @@
 #include <random>
 #include <vector>
 #include <algorithm>
+#include <fstream>
+#include <iomanip>
+#include <limits.h>
 
 
 using random_bytes_engine = std::independent_bits_engine<
@@ -17,7 +20,7 @@ std::string generate_random_bytes(int length) {
         std::for_each(begin(data), end(data),
                 [&result](unsigned char c) {
                         std::stringstream stream;
-                        stream << std::hex << int(c);
+                        stream << std::setfill('0') << std::setw(2) << std::hex << int(c);
                         result.append(stream.str());
                 });
 
@@ -52,4 +55,31 @@ std::string hex_str_to_bin_str(const std::string& hex) {
 		bin += hex_char_to_bin(hex[i]);
 	}
 	return bin;
+}
+
+std::vector<std::string> get_words(std::string langage) {
+
+	std::string file_name = "wordlists/";
+	if (langage == "fr") {
+		file_name += "french.txt";
+	}
+	else {
+		file_name += "english.txt";
+	}
+	std::vector<std::string> words;
+
+	std::ifstream input_stream(file_name);
+	if (input_stream.is_open()) {
+		std::string word;
+
+		while (std::getline(input_stream, word)) {
+			words.push_back(word);
+		}
+		input_stream.close();
+	}
+	else {
+
+	}
+
+	return words;
 }
