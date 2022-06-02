@@ -4,6 +4,9 @@
 #include <vector>
 #include <algorithm>
 #include <fstream>
+#include <iomanip>
+#include <limits.h>
+
 
 using random_bytes_engine = std::independent_bits_engine<
     std::default_random_engine, CHAR_BIT, unsigned char>;
@@ -17,7 +20,7 @@ std::string generate_random_bytes(int length) {
         std::for_each(begin(data), end(data),
                 [&result](unsigned char c) {
                         std::stringstream stream;
-                        stream << std::hex << int(c);
+                        stream << std::setfill('0') << std::setw(2) << std::hex << int(c);
                         result.append(stream.str());
                 });
 

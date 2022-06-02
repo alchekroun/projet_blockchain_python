@@ -9,7 +9,6 @@ namespace py = pybind11;
 
 std::vector<int> POSSIBLE_WORD_COUNT = {12, 15, 18, 21, 24};
 
-#include <iostream>
 
 std::string Bip39::generate_entropy() const {
 	std::string random_bytes_hex = generate_random_bytes(this->entropy_length / 8);
@@ -21,10 +20,11 @@ std::string Bip39::generate_checksum(std::string& entropy_string) const {
 	std::string result;
 
 	// generate sha526 string
-	std::string sha256 = "0110";
+	std::string sha256 = "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08";
+	std::string sha256_bin = hex_str_to_bin_str(sha256);
 
 	// take checksum bits of the sha526 string
-	std::string result_to_append = "0110";
+	std::string result_to_append = sha256_bin.substr(0, this->checksum);
 
 	// append it to the initial entropy
 	result = entropy_string + result_to_append;
@@ -32,12 +32,11 @@ std::string Bip39::generate_checksum(std::string& entropy_string) const {
 	return result;
 }
 
-#include <iostream>
 
 std::string Bip39::generate_mnemonic(std::string& checksum_string) const {
 	std::vector<std::string> v;
 	auto words_dict = get_words(this->langage_);
-	
+
 	for (int i = 0; i < checksum_string.length(); i += 11) {
 		auto sub = checksum_string.substr(i, 11);
 		auto word = words_dict[std::stoi(sub, nullptr, 2)];
@@ -60,8 +59,6 @@ std::string Bip39::generate(int word_count) {
 	this->word_count = word_count;
 	this->checksum = (this->word_count * 11) % 32;
 	this->entropy_length = (this->word_count * 11) - this->checksum;
-
-	std::string output = std::to_string(this->word_count) + " -> " + std::to_string(this->checksum) + " -> " + std::to_string(this->entropy_length);
 
 	auto entropy_string = this->generate_entropy();
 	auto checksum_string = this->generate_checksum(entropy_string);
