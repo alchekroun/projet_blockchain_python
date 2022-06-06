@@ -34,7 +34,7 @@ Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/
 ## Python functions
 - get_langage() : Returns the language of the component.
 - set_language(string language) : Sets the language of the component to French with parameter **"fr"** or to English with parameter **"en"**.
-- generate(int number) : Generates the mnemonic sentence with **number** of words. **number* can only be chosen in the list [12, 15, 18, 21, 24].
+- generate(int number) : Generates the mnemonic sentence with **number** of words. **number** can only be chosen in the list [12, 15, 18, 21, 24].
 
 ## Exceptions
 
