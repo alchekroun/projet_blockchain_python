@@ -18,17 +18,25 @@ Y : Minor release, few features on a previous major release
 Z : Fix for a minor release
 
 - 1.0.0 : implementation of the BIP39 generator
-- 1.1.0 : adding tests 
-- 1.1.1 : Fixing typo
-- 1.1.2 : Fixing minor bugs
+- 1.0.1 : Fixing minor bugs
 
-## Description
-###Context
+## Context
 This BIP describes the implementation of a mnemonic code for the generation of deterministic wallets.
 
 It consists of two parts: Generation of the mnemonic sentence and its conversion into a binary seed. This seed can later be used to generate deterministic wallets using BIP39 or similar methods.
 
 Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) in C++. Fully workable on a python3 environment.
+
+## Schema of the components
+
+## Interaction with other components
+
+## Python functions
+- get_langage() : Returns the language of the component.
+- set_language(string language) : Sets the language of the component to French with parameter **"fr"** or to English with parameter **"en"**.
+- generate(int number) : Generates the mnemonic sentence with **number** of words. **number* can only be chosen in the list [12, 15, 18, 21, 24].
+
+## Exceptions
 
 ## Installation
 
