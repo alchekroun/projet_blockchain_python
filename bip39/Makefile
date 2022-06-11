@@ -1,12 +1,12 @@
 CPPFLAGS += -I /usr/include/python3.7m
-LIBS=-lpython3.7m 
+LIBS=-lpython3.7m
 
 COMPOSANT = bip39
 
 CPPFLAGS += -I../membre
 
 LIBSO = ${COMPOSANT}.so
-LIBSO_OBJS = ${COMPOSANT}.o
+LIBSO_OBJS = ${COMPOSANT}.o sha256/sha256/sha256.o
 
 DESTINATION_LIBSO=../components/${LIBSO}
 

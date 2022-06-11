@@ -1,6 +1,7 @@
 #include <stdexcept>
 #include <vector>
 #include <pybind11/pybind11.h>
+#include "sha256/sha256/sha256.h"
 
 namespace py = pybind11;
 
@@ -19,9 +20,8 @@ std::string Bip39::generate_entropy() const {
 std::string Bip39::generate_checksum(std::string& entropy_string) const {
 	std::string result;
 
-	// generate sha526 string
-	std::string sha256 = "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08";
-	std::string sha256_bin = hex_str_to_bin_str(sha256);
+	std::string entropy_sha256 = sha256(entropy_string);
+	std::string sha256_bin = hex_str_to_bin_str(entropy_sha256);
 
 	// take checksum bits of the sha526 string
 	std::string result_to_append = sha256_bin.substr(0, this->checksum);
