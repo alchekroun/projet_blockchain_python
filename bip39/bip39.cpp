@@ -13,7 +13,7 @@ std::vector<int> POSSIBLE_WORD_COUNT = {12, 15, 18, 21, 24};
 
 std::string Bip39::generate_entropy() const {
 	std::string random_bytes_hex = generate_random_bytes(this->entropy_length / 8);
-	return hex_str_to_bin_str(random_bytes_hex);
+	return random_bytes_hex;
 }
 
 
@@ -61,9 +61,30 @@ std::string Bip39::generate(int word_count) {
 	this->entropy_length = (this->word_count * 11) - this->checksum;
 
 	auto entropy_string = this->generate_entropy();
+	entropy_string = hex_str_to_bin_str(entropy_string);
 	auto checksum_string = this->generate_checksum(entropy_string);
-	auto mnemonic_sentence = this->generate_mnemonic(checksum_string);
-	return mnemonic_sentence;
+	this->mnemonic_  = this->generate_mnemonic(checksum_string);
+	return this->mnemonic_;
+}
+
+
+bool Bip39::verify_mnemonic(std::string& entropy_string, std::string& mnemonic_sentence) {
+
+	// TODO verify right arguments
+
+	int checksum = entropy_string.length() * 4 / 32;
+	int word_count = (checksum + entropy_string.length() * 4) / 11;
+
+	// first check
+
+	this->word_count = word_count;
+        this->checksum = checksum;
+        this->entropy_length = entropy_string.length() * 4;
+
+	entropy_string = hex_str_to_bin_str(entropy_string);
+        auto checksum_string = this->generate_checksum(entropy_string);
+        auto expected_mnemonic_sentence  = this->generate_mnemonic(checksum_string);
+	return expected_mnemonic_sentence.compare(mnemonic_sentence) == 0;
 }
 
 
@@ -72,6 +93,8 @@ PYBIND11_MODULE(bip39, comp) {
         .def(py::init<const std::string &>(), py::arg("langage") = "en")
 	.def("get_langage", &Bip39::get_langage)
 	.def("set_langage", &Bip39::set_langage)
-        .def("generate", &Bip39::generate);
+	.def("get_mnemonic", &Bip39::get_mnemonic)
+        .def("generate", &Bip39::generate)
+	.def("verify_mnemonic", &Bip39::verify_mnemonic);
 }
 

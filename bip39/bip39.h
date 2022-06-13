@@ -2,7 +2,7 @@
 
 class Bip39 {
 
-	std::string seed_;
+	std::string mnemonic_;
 	std::string langage_;
 
 	int checksum;
@@ -17,12 +17,14 @@ class Bip39 {
 
 	/**
          * @brief Generate the checksum string and append it to the initial entropy
-         * @return String of the entropy with the checksum added.
+         * @param entropy_string Entropy
+	 * @return String of the entropy with the checksum added.
          */
 	std::string generate_checksum(std::string& entropy_string) const;
 	
 	/**
          * @brief Generate the mnemonic sentence
+	 * @checksum_string Entropy with checksum
          * @return String of the mnemonic sentence.
          */
 	std::string generate_mnemonic(std::string& checksum_string) const;
@@ -38,7 +40,16 @@ public:
          */
 	std::string generate(int word_count);
 
+	/**
+	 * @brief Verify the mnemonic sentence given the entropy.
+	 * @param entropy_string Entropy
+	 * @param mnemonic_sentence Mnemonic sentence
+	 * @return Boolean whether the given entropy gives the same mnemonic sentence
+	 */
+	bool verify_mnemonic(std::string& entropy_string, std::string& mnemonic_sentence);
+
 	// Getters setters
 	std::string get_langage() const { return this->langage_; };
 	void set_langage(std::string langage) { this->langage_ = langage; };
+	std::string get_mnemonic() const { return this->mnemonic_; };
 };
