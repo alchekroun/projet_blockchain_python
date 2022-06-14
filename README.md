@@ -2,7 +2,7 @@
 
 ## Authors
 
-Forked from [Jose Luu](https://github.com/jluuM2) repository [project_blockchain_python](https://github.com/jl$
+Forked from [Jose Luu](https://github.com/jluuM2) repository [project_blockchain_python](https://github.com/jluuM2/projet_blockchain_python)
 
 The dev team is :
 - [Estelle Hu](https://github.com/EstelleHu)
