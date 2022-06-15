@@ -11,4 +11,32 @@ The dev team is :
 
 ## Specification
 
-Check the specification of our [BIP39](bip39/doc/bip39.md) component.
+Check the specification of our [BIP39](doc/bip39.md) component.
+
+## Installation
+
+Initialize dependencies:
+```bash
+cd project_blockchain_python
+git submodule init
+git submodule update
+```
+Then compile:
+```bash
+cd bip39
+make
+```
+
+## Usage
+
+Open a python3 console and import the library:
+
+```python
+>>> import bip39 as bp
+>>> gen = bp.Bip39("en") # By default "en"
+>>> gen.generate(12)
+'also lab path phrase inner magic metal expose involve roof hire spell'
+>>>
+```
+
+You can change the langage in the constructor or with the function ```set_langage("fr")```

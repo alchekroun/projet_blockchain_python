@@ -20,6 +20,7 @@ Y : Minor release, few features on a previous major release
 Z : Fix for a minor release
 
 - 1.0.0 : implementation of the BIP39 generator
+- 1.1.0 : adding tests function
 
 ## Context
 This BIP describes the implementation of a mnemonic code for the generation of deterministic wallets.
