@@ -93,7 +93,7 @@ Plan of test:
 2. To check the length of entropy
 3. To check the sentence of mnemonic with expected sentence
 
-The method verify_mnemonic() will retrun TRUE if the signature is valid. If not, retrun false.
+The method ```verify_mnemonic``` will retrun ```TRUE``` if the signature is valid. If not, return ```FALSE```. It takes two argument, the entropy string, and the mnemonic sentence.
 
 
 ## Exceptions
