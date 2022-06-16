@@ -75,6 +75,22 @@ Open a python3 console and import the library:
 
 You can change the langage in the constructor or with the function ```set_langage("fr")```
 
+## Test
+In order to check our component is working properly we have written a test code (more detaiks in bip39.cpp) with the following methods.
+generate_entropy(): returns a random string
+generate_checksum(std::string& entropy_string): returns a string of the combination of entropy string with the checksum 
+generate_mnemonic(std::string& checksum_string): returns a string of mnemonic
+Bip39::generate(int word_count):returns a sentence of words which correspond to the mnemonic
+Bip39::verify_mnemonic(std:: string& entropy_string, std::string& mnemonic_sentence): returns the result of test with type bool
+
+Plan of test:
+1. To check all the arguments are right
+2. To check the length of entropy
+3. To check the sentence of mnemonic with expected sentence
+
+The method verify_mnemonic() will retrun TRUE if the signature is valid. If not, it will throw the exceptions and retrun false.
+
+
 ## Exceptions
 You can only generate X words, with X in [12, 15, 18, 21, 24].
 ```python
