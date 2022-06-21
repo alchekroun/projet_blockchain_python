@@ -3,7 +3,6 @@
 #include <vector>
 #include <bitset>
 #include <string>
-#include <wchar.h>
 #include <pybind11/pybind11.h>
 #include "sha256/sha256/sha256.h"
 
@@ -111,7 +110,12 @@ std::string Bip39::retrieve_entropy(std::string mnemonic_sentence) {
 		});
 
 	std::string words_without_checksum = words_string_binary.substr(0, words_string_binary.length() - this->word_count);
-	this->entropy_ = bin_str_to_hex_str(words_without_checksum);
+	std::string result;
+
+	for (auto i = 0; i < words_without_checksum.length(); i += 8){
+        	result += bin_str_to_hex_str(words_without_checksum.substr(i, 8));
+    	}
+	this->entropy_ = result;
 	return this->entropy_;
 }
 
