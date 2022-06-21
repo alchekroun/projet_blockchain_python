@@ -48,7 +48,7 @@ bip --> hmac : return the seed
 - ```generate(int word_count)``` : Generates the mnemonic sentence with **word_count** of words. **word_count** can only be chosen in the list [12, 15, 18, 21, 24].
 - ```generate_given_entropy(string entropy)``` : Generate the mnemonic sentence given an entropy.
 - ```retrieve_entropy(string mnemonic_sentence)```: Retrieve entropy given a mnemonic sentence.
-- ```get_seed(string entropy)``` : Convert the entropy in hexadecimal format.
+- ```get_entropy()``` : Returns the entropy of the object bip39.
 
 ## Installation
 
