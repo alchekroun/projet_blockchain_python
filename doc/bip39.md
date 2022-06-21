@@ -37,8 +37,8 @@ participant "BIP39" as bip
 
 hmac -> bip : call generate(int word_count)
 bip --> bip : generate the mnemonic sentence
-hmac -> bip : call get_seed()
-bip --> hmac : return the seed 
+hmac -> bip : call get_entropy()
+bip --> hmac : return the entropy 
 
 @enduml
 ```
