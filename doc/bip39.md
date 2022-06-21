@@ -36,8 +36,8 @@ participant  "HMACSHA512" as hmac
 participant "BIP39" as bip
 
 
-hmac -> bip : call generate(number)
-bip --> hmac : return the mnemonic sentence
+hmac -> bip : call get_seed(retrieve_entropy(generate(word_count)))
+bip --> hmac : return the seed 
 
 @enduml
 ```
@@ -45,10 +45,10 @@ bip --> hmac : return the mnemonic sentence
 ## Python functions
 - ```get_langage()``` : Returns the language of the component.
 - ```set_language(string language)``` : Sets the language of the component to French with parameter **"fr"** or to English with parameter **"en"**.
-- ```generate(int number)``` : Generates the mnemonic sentence with **number** of words. **number** can only be chosen in the list [12, 15, 18, 21, 24].
+- ```generate(int word_count)``` : Generates the mnemonic sentence with **word_count** of words. **word_count** can only be chosen in the list [12, 15, 18, 21, 24].
 - ```generate_given_entropy(string entropy)``` : Generate the mnemonic sentence given an entropy.
 - ```retrieve_entropy(string mnemonic_sentence)```: Retrieve entropy given a mnemonic sentence.
-- ```get_seed(string entropy)``` : Convert the entropy in hexadecimal format and return the string of it.
+- ```get_seed(string entropy)``` : Convert the entropy in hexadecimal format.
 
 ## Installation
 
