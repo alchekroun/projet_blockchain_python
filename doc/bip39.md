@@ -92,7 +92,7 @@ In order to check our component is working properly we have written a test code 
 
 ```Retrieve_entropy()```: return a  mnemonic sentence. It needs to check if it is the particular entropy that we expect.
 
-```Get_seed()```: Convert the entropy in hexadecimal format and return the string of it. We take the mnemonic sentence as input and check weather the form is corresponding.
+```Get_entropy()```: Convert the entropy in hexadecimal format and return the string of it. We take the mnemonic sentence as input and check weather the form is corresponding.
 
 
 
