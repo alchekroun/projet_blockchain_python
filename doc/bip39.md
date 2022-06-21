@@ -80,7 +80,7 @@ Open a python3 console and import the library:
 You can change the langage in the constructor or with the function ```set_langage("fr")```
 
 ## Test
-- [Plan of test:]
+- Plan of test:
 1. To check all the arguments are right
 2. To check the length of entropy
 3. To check the sentence of mnemonic with expected sentence
@@ -95,7 +95,7 @@ In order to check our component is working properly we have written a test code 
 
 ```Get_entropy()```: Convert the entropy in hexadecimal format and return the string of it. We take the mnemonic sentence as input and check weather the form is corresponding.
 
-- [Results of test:]
+- Results of test:
 à remplir
 
 
