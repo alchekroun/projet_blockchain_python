@@ -43,9 +43,12 @@ bip --> hmac : return the mnemonic sentence
 ```
 
 ## Python functions
-- get_langage() : Returns the language of the component.
-- set_language(string language) : Sets the language of the component to French with parameter **"fr"** or to English with parameter **"en"**.
-- generate(int number) : Generates the mnemonic sentence with **number** of words. **number** can only be chosen in the list [12, 15, 18, 21, 24].
+- ```get_langage()``` : Returns the language of the component.
+- ```set_language(string language)``` : Sets the language of the component to French with parameter **"fr"** or to English with parameter **"en"**.
+- ```generate(int number)``` : Generates the mnemonic sentence with **number** of words. **number** can only be chosen in the list [12, 15, 18, 21, 24].
+- ```generate_given_entropy(string entropy)``` : Generate the mnemonic sentence given an entropy.
+- ```retrieve_entropy(string mnemonic_sentence)```: Retrieve entropy given a mnemonic sentence.
+- ```get_seed(string entropy)``` : Convert the entropy in hexadecimal format and return the string of it.
 
 ## Installation
 
