@@ -1,5 +1,9 @@
+#include <stdlib.h>
 #include <stdexcept>
 #include <vector>
+#include <bitset>
+#include <string>
+#include <wchar.h>
 #include <pybind11/pybind11.h>
 #include "sha256/sha256/sha256.h"
 
@@ -11,8 +15,9 @@ namespace py = pybind11;
 std::vector<int> POSSIBLE_WORD_COUNT = {12, 15, 18, 21, 24};
 
 
-std::string Bip39::generate_entropy() const {
+std::string Bip39::generate_entropy() {
 	std::string random_bytes_hex = generate_random_bytes(this->entropy_length / 8);
+	this->entropy_ = random_bytes_hex;
 	return random_bytes_hex;
 }
 
@@ -20,7 +25,7 @@ std::string Bip39::generate_entropy() const {
 std::string Bip39::generate_checksum(std::string& entropy_string) const {
 	std::string result;
 
-	std::string entropy_sha256 = sha256(entropy_string);
+	std::string entropy_sha256 = sha256(hex_str_to_bin_str(entropy_string));
 	std::string sha256_bin = hex_str_to_bin_str(entropy_sha256);
 
 	// take checksum bits of the sha526 string
@@ -68,6 +73,49 @@ std::string Bip39::generate(int word_count) {
 }
 
 
+std::string Bip39::generate_given_entropy(std::string entropy) {
+
+	this->entropy_length = entropy.length() * 4;
+	this->checksum = this->entropy_length / 32;
+	this->word_count = (this->entropy_length + this->checksum) / 11;
+	this->entropy_ = entropy;
+	if (std::find(begin(POSSIBLE_WORD_COUNT), end(POSSIBLE_WORD_COUNT), this->word_count) == end(POSSIBLE_WORD_COUNT)) {
+                throw std::invalid_argument("The entropy given doesn't have a word count in [12, 15, 18, 21, 24] interval");
+        }
+
+	auto entropy_string = hex_str_to_bin_str(entropy);
+	auto checksum_string = this->generate_checksum(entropy_string);
+	this->mnemonic_ = this->generate_mnemonic(checksum_string);
+	return this->mnemonic_;
+}
+
+
+std::string Bip39::retrieve_entropy(std::string mnemonic_sentence) {
+	std::stringstream ss(mnemonic_sentence);
+	std::string buf;
+	std::vector<std::string> words;
+    	while (ss >> buf) {
+        	words.push_back(buf);
+	}
+	auto words_dict = get_words(this->langage_);
+	std::string words_string_binary;
+	this->word_count = words.size();
+
+	std::for_each(words.begin(), words.end(),
+		[&](std::string const& w){
+			auto it = std::find(words_dict.begin(), words_dict.end(), w);
+			if (it == words_dict.end()) {
+				throw std::invalid_argument("The word : " + w + "is not in the wordlist!");
+			}
+			words_string_binary += std::bitset<11>(it - words_dict.begin()).to_string();
+		});
+
+	std::string words_without_checksum = words_string_binary.substr(0, words_string_binary.length() - this->word_count);
+	this->entropy_ = bin_str_to_hex_str(words_without_checksum);
+	return this->entropy_;
+}
+
+
 bool Bip39::verify_mnemonic(std::string& entropy_string, std::string& mnemonic_sentence) {
 
 	// TODO verify right arguments
@@ -94,7 +142,10 @@ PYBIND11_MODULE(bip39, comp) {
 	.def("get_langage", &Bip39::get_langage)
 	.def("set_langage", &Bip39::set_langage)
 	.def("get_mnemonic", &Bip39::get_mnemonic)
+	.def("get_entropy", &Bip39::get_entropy)
         .def("generate", &Bip39::generate)
+	.def("generate_given_entropy", &Bip39::generate_given_entropy)
+	.def("retrieve_entropy", &Bip39::retrieve_entropy)
 	.def("verify_mnemonic", &Bip39::verify_mnemonic);
 }
 

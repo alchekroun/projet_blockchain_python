@@ -4,6 +4,7 @@ class Bip39 {
 
 	std::string mnemonic_;
 	std::string langage_;
+	std::string entropy_;
 
 	int checksum;
 	int word_count;
@@ -13,7 +14,7 @@ class Bip39 {
 	 * @brief Generate the initial random entropy
 	 * @return String of the entropy converted to a binary buffer.
 	 */
-	std::string generate_entropy() const;
+	std::string generate_entropy();
 
 	/**
          * @brief Generate the checksum string and append it to the initial entropy
@@ -41,6 +42,21 @@ public:
 	std::string generate(int word_count);
 
 	/**
+	 * @brief Generate mnemonic sentence given an entropy
+         * @param entropy string of the entropy
+         * @return String of the mnemonic sentence in the langage selected, by default "en";
+	 */
+	std::string generate_given_entropy(std::string entropy);
+
+	/**
+	 * @brief Retrieve Entropy given a mnemonic sentence
+         * @param mnemonic_sentence string of the mnemonic sentence
+         * @return String of the entropy
+	 */
+	std::string retrieve_entropy(std::string mnemonic_sentence);
+
+
+	/**
 	 * @brief Verify the mnemonic sentence given the entropy.
 	 * @param entropy_string Entropy
 	 * @param mnemonic_sentence Mnemonic sentence
@@ -52,4 +68,5 @@ public:
 	std::string get_langage() const { return this->langage_; };
 	void set_langage(std::string langage) { this->langage_ = langage; };
 	std::string get_mnemonic() const { return this->mnemonic_; };
+	std::string get_entropy() const {return this->entropy_; };
 };

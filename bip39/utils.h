@@ -45,7 +45,7 @@ const char* hex_char_to_bin(char c) {
 		case 'D': return "1101";
 		case 'E': return "1110";
 		case 'F': return "1111";
-		default: break;
+		default: throw std::invalid_argument("");
 	}
 }
 
@@ -56,6 +56,22 @@ std::string hex_str_to_bin_str(const std::string& hex) {
 	}
 	return bin;
 }
+
+
+std::string bin_str_to_hex_str(const std::string& bin) {
+    	const char *end = bin.c_str() + bin.length();
+    	const char *cur = bin.c_str();
+    	size_t x = 0;
+    	while (cur != end && (*cur == '0' || *cur == '1')) {
+        	x <<= 1;
+        	x  |= *cur == '1';
+        	cur++;
+    	}
+	std::stringstream stream;
+	stream << std::setfill('0') << std::setw(2) << std::hex << x;
+    	return stream.str();
+}
+
 
 std::vector<std::string> get_words(std::string langage) {
 
