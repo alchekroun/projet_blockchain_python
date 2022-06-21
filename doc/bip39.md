@@ -79,24 +79,21 @@ Open a python3 console and import the library:
 You can change the langage in the constructor or with the function ```set_langage("fr")```
 
 ## Test
-In order to check our component is working properly we have written a test code (more detaiks in bip39.cpp) with the following methods.
-
-```generate_entropy()```: returns a random string
-
-```generate_checksum(std::string& entropy_string)```: returns a string of the combination of entropy string with the checksum 
-
-```generate_mnemonic(std::string& checksum_string)```: returns a string of mnemonic
-
-```Bip39::generate(int word_count)```:returns a sentence of words which correspond to the mnemonic
-
-```Bip39::verify_mnemonic(std:: string& entropy_string, std::string& mnemonic_sentence)```: returns the result of test with type bool
-
 Plan of test:
 1. To check all the arguments are right
 2. To check the length of entropy
 3. To check the sentence of mnemonic with expected sentence
 
-The method ```verify_mnemonic``` will retrun ```TRUE``` if the signature is valid. If not, return ```FALSE```. It takes two argument, the entropy string, and the mnemonic sentence.
+In order to check our component is working properly we have written a test code with the following methods.
+
+```Generate()```: generate a mnemonic sentence. It needs to check the length of the string, then check the randomness by generating the mnemonic several times. Moreover, comparing all the results of test in order to make sure that they are random. We want the number of the words and it will retrun a result that we expect.
+
+```Generate_given_entropy()```: generate mnemonic sentence given an entropy, entropy string of the entropy and retrun a string of the mnemonic sentence in the language that we selected. It needs to check if it returns a result that we expect.
+
+```Retrieve_entropy()```: return a  mnemonic sentence. It needs to check if it is the particular entropy that we expect.
+
+```Get_entropy()```: Convert the entropy in hexadecimal format and return the string of it. We take the mnemonic sentence as input and check weather the form is corresponding.
+
 
 
 ## Exceptions
