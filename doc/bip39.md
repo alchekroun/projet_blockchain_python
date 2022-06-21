@@ -35,8 +35,9 @@ Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/
 participant  "HMACSHA512" as hmac
 participant "BIP39" as bip
 
-
-hmac -> bip : call get_seed(retrieve_entropy(generate(word_count)))
+hmac -> bip : call generate(int word_count)
+bip --> bip : generate the mnemonic sentence
+hmac -> bip : call get_seed()
 bip --> hmac : return the seed 
 
 @enduml
