@@ -30,18 +30,8 @@ It consists of two parts: Generation of the mnemonic sentence and its conversion
 Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) in C++. Fully workable on a python3 environment.
 
 ## Interaction with other components
-```plantuml
-@startuml
-participant  "HMACSHA512" as hmac
-participant "BIP39" as bip
 
-hmac -> bip : call generate(int word_count)
-bip --> bip : generate the mnemonic sentence
-hmac -> bip : call get_entropy()
-bip --> hmac : return the entropy 
-
-@enduml
-```
+![diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https:https://github.com/alchekroun/projet_blockchain_python/blob/master/doc/diagram.iuml)
 
 ## Python functions
 - ```get_langage()``` : Returns the language of the component.
