@@ -71,10 +71,11 @@ Open a python3 console and import the library:
 
 ```python
 >>> import bip39 as bp
->>> gen = bp.Bip39("en") # By default "en"
+>>> gen = bp.Bip39("en")
 >>> gen.generate(12)
-'also lab path phrase inner magic metal expose involve roof hire spell'
->>>
+'below judge harvest kitchen math trumpet anchor duck stable window country success'
+>>> gen.get_entropy()
+'14cf15a5bd8891d3021a1ed3df6cc46c'
 ```
 
 You can change the langage in the constructor or with the function ```set_langage("fr")```
