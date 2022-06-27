@@ -31,7 +31,7 @@ Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/
 
 ## Interactions
 - Use Case 1 : User wants to generate a mnemonic sentence
-![diagramUC1](http://www.plantuml.com/plantuml/png/XP2n2i8m48RtFCNHIOTEJZf8SNDp4KU9wQc1zb8k5_hwNaCRK16dNFY_xq-u9efbINrd1ZszyuCb0QZE4Ra26o7fy95TRDUXv7JCurjU7OwdpJQdDpyOCnL0lPzHsC432TcA3mJX3XPwmZwGTn2H1CcXcL6Lj44Df_T5mvNNHyR0xTM5HB8s4rClRC50dlXTNU3o6qP9JF47FcDgv4NyvHkaLfVv0W00)
+![diagramUC1](http://www.plantuml.com/plantuml/png/ZOynRyGW38LtVeMLAHaoTMg7AEhMhKlLCQB4RP70832A-kyB4LnqTufqautUznxFSsGPE5aZV9vQQI-90RgFYA436I7bvKRxbCOWx-gshrTwz_hs_lIygr_Q2r42O9mg2Y_mWuH1idO4xXiaM4BhI2k8I8oaK5Hqd4f2TgZyRZRiDJ5iBgoBSebu48KP6tl1W7_nFhh1Hvk0d0B54xnYnL7kU9W_sl22nC7vltuu_xpDYeePQKtM_0C0)
 
 - Use Case 2 : User wants to have the entropy from his mnemonic sentence
 ![diagramUC2](http://www.plantuml.com/plantuml/png/POwx3i8m34NtV8NL2OPEJ32WYesD1J5M8NMhI8aREKaHVuyRjOZ755l7vzuqCMbEsJiLvBN61aq9eBf6v0fqX2p33xjfvp0L-YZZ5wzEvyjkN-ZT1gNc0AYFooaSeBVK0LBYCJoXvz63Xi5EIE09_KZMG1ICP50jakYI9QwH7HWJMvomNK8sKNOQtdgxwbirM_LdkRYPAQxzQy5yKpxwVz4WTTcx5m00)
