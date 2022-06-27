@@ -146,7 +146,7 @@ We can see that the sentence is always different and has 12 words in it.
 
 We can see that ```generate_given_entropy``` can retrieve the correct sentence from an entropy.
 
-  -```Retrieve_entropy(string mnemonic_sentence)```:
+  - ```Retrieve_entropy(string mnemonic_sentence)```:
 ```python
 >>> gen.generate(12)
 'balcony menu artefact busy betray blast away accident side favorite cake enact'
@@ -157,7 +157,7 @@ We can see that ```generate_given_entropy``` can retrieve the correct sentence f
 ```
 We can see that ```retrieve_entropy``` can retrieve the correct entropy from a sentence.
 
-  -```get_entropy()```:
+  - ```get_entropy()```:
 ```python
 >>> gen.generate(12)
 'balcony menu artefact busy betray blast away accident side favorite cake enact'
