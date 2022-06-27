@@ -31,7 +31,7 @@ Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/
 
 ## Interaction with other components
 
-![diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https:https://github.com/alchekroun/projet_blockchain_python/blob/master/doc/diagram.iuml)
+![diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/alchekroun/projet_blockchain_python/blob/master/doc/diagram.iuml)
 
 ## Python functions
 - ```get_langage()``` : Returns the language of the component.
