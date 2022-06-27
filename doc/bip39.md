@@ -29,8 +29,12 @@ It consists of two parts: Generation of the mnemonic sentence and its conversion
 
 Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) in C++. Fully workable on a python3 environment.
 
-## Interaction with other components
-![diagram](http://www.plantuml.com/plantuml/png/RS-_2i8m4CVnFKznTAf31nK7EqYhInq4mGSeCJrieBc4wnNnxKs3Vn2SGlXz-C9LesYMoGqgnDSQ6pG9GDQSwiEbgJVBLGPwXDvfyoEo_V6ytgRjQeDICu1YDt-W1AE70Mv8o5emjz7VFNUjyHF9GiscUDiF0-aH7A7pP0sCI89ay7zOsZYp3u_yMqkm14QPc5BiPLI5rCKBdm00)
+## Interactions
+- Use Case 1 : User wants to generate a mnemonic sentence
+![diagramUC1](http://www.plantuml.com/plantuml/png/XP2n2i8m48RtFCNHIOTEJZf8SNDp4KU9wQc1zb8k5_hwNaCRK16dNFY_xq-u9efbINrd1ZszyuCb0QZE4Ra26o7fy95TRDUXv7JCurjU7OwdpJQdDpyOCnL0lPzHsC432TcA3mJX3XPwmZwGTn2H1CcXcL6Lj44Df_T5mvNNHyR0xTM5HB8s4rClRC50dlXTNU3o6qP9JF47FcDgv4NyvHkaLfVv0W00)
+
+- Use Case 2 : User wants to have the entropy from his mnemonic sentence
+![diagramUC2](http://www.plantuml.com/plantuml/png/POwx3i8m34NtV8NL2OPEJ32WYesD1J5M8NMhI8aREKaHVuyRjOZ755l7vzuqCMbEsJiLvBN61aq9eBf6v0fqX2p33xjfvp0L-YZZ5wzEvyjkN-ZT1gNc0AYFooaSeBVK0LBYCJoXvz63Xi5EIE09_KZMG1ICP50jakYI9QwH7HWJMvomNK8sKNOQtdgxwbirM_LdkRYPAQxzQy5yKpxwVz4WTTcx5m00)
 
 ## Python functions
 - ```get_langage()``` : Returns the language of the component.
