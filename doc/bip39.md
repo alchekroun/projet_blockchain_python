@@ -34,7 +34,7 @@ Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/
 ![diagramUC1](http://www.plantuml.com/plantuml/png/ZOynRyGW38LtVeMLAHaoTMg7AEhMhKlLCQB4RP70832A-kyB4LnqTufqautUznxFSsGPE5aZV9vQQI-90RgFYA436I7bvKRxbCOWx-gshrTwz_hs_lIygr_Q2r42O9mg2Y_mWuH1idO4xXiaM4BhI2k8I8oaK5Hqd4f2TgZyRZRiDJ5iBgoBSebu48KP6tl1W7_nFhh1Hvk0d0B54xnYnL7kU9W_sl22nC7vltuu_xpDYeePQKtM_0C0)
 
 - Use Case 2 : User wants to have the entropy from his mnemonic sentence
-![diagramUC2](http://www.plantuml.com/plantuml/png/POwx3i8m34NtV8NL2OPEJ32WYesD1J5M8NMhI8aREKaHVuyRjOZ755l7vzuqCMbEsJiLvBN61aq9eBf6v0fqX2p33xjfvp0L-YZZ5wzEvyjkN-ZT1gNc0AYFooaSeBVK0LBYCJoXvz63Xi5EIE09_KZMG1ICP50jakYI9QwH7HWJMvomNK8sKNOQtdgxwbirM_LdkRYPAQxzQy5yKpxwVz4WTTcx5m00)
+![diagramUC2](http://www.plantuml.com/plantuml/png/NOsz3e8m58NtFiK9amvCJZeGukRcOXn9BHVIfBqq_S7uzhO4Z3hrddpzpcb3b3ucQuJBhrRQIOv0TGlaAyY0b8y_TfV6K5peSpb_U7M-N0_7XJwq4w8Ke6xMhpXXqDo3EFh9lJ3uoK9Yr3CnB9ETM2i4uaYiIAnItPIkxAgSuIbwJJDrQyakvCpZH-ysVI-ALN-D5pTv3jk-Q8dxPCqR)
 
 ## Python functions
 - ```get_langage()``` : Returns the language of the component.
