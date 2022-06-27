@@ -37,6 +37,5 @@ def test_get_entropy(word_count):
     hex = re.search(hexaPattern, e1)
     if hex:
         print ("OK is hexadecimal format")
-    
     else:
         print("KO not hexadecimal format")
