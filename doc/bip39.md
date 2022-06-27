@@ -98,7 +98,8 @@ In order to check our component is working properly we have written a test code 
 
 - Results of test:
   - ```Generate()```:
-```>>> import bip39 as bp
+```python
+>>> import bip39 as bp
 >>> gen = bp.Bip39("en")
 >>> gen.generate(12)
 'actual unique bright fossil glove face useless acquire armor point space million'
@@ -127,32 +128,38 @@ In order to check our component is working properly we have written a test code 
 >>> gen.generate(12)
 'large target plate ordinary add enable record right glide swamp filter south'
 >>> gen.generate(12)
-'category gospel cotton phrase mouse employ scissors holiday rifle demand seek gadget'```
+'category gospel cotton phrase mouse employ scissors holiday rifle demand seek gadget'
+```
 
 We can see that the sentence is always different and has 12 words in it.
 
   - ```Generate_given_entropy(string entropy)```:
 
-```>>> gen.generate(12)
+```python
+>>> gen.generate(12)
 'melt tip push jealous chief clutch choice mimic school base forest suit'
 >>> gen.get_entropy()
 '8abc52babbc27c590a0c66c0c25d6cec'
 >>> gen.generate_given_entropy("8abc52babbc27c590a0c66c0c25d6cec")
-'melt tip push jealous chief clutch choice mimic school base forest suit'```
+'melt tip push jealous chief clutch choice mimic school base forest suit'
+```
 
 We can see that ```generate_given_entropy``` can retrieve the correct sentence from an entropy.
 
   -```Retrieve_entropy(string mnemonic_sentence)```:
-```>>> gen.generate(12)
+```python
+>>> gen.generate(12)
 'balcony menu artefact busy betray blast away accident side favorite cake enact'
 >>> gen.get_entropy()
 '11d164338f91562ec4180bc7ea808124'
 >>> gen.retrieve_entropy("balcony menu artefact busy betray blast away accident side favorite cake enact")
-'11d164338f91562ec4180bc7ea8081'```
+'11d164338f91562ec4180bc7ea8081'
+```
 We can see that ```retrieve_entropy``` can retrieve the correct entropy from a sentence.
 
   -```get_entropy()```:
-```>>> gen.generate(12)
+```python
+>>> gen.generate(12)
 'balcony menu artefact busy betray blast away accident side favorite cake enact'
 >>> gen.get_entropy()
 '11d164338f91562ec4180bc7ea808124'
@@ -177,7 +184,8 @@ We can see that ```retrieve_entropy``` can retrieve the correct entropy from a s
 >>> gen.generate(24)
 'nominee evolve excess grocery palm company wish inhale scale toss state clever ghost soldier dinner unique rhythm naive leopard awesome parade steel glove whale'
 >>> gen.get_entropy()
-'95e9c53a3369f45d3f239dc01cb7531546199d0f976cb8d25601084a01aa58ef'```
+'95e9c53a3369f45d3f239dc01cb7531546199d0f976cb8d25601084a01aa58ef'
+```
 The entropy is returned and it is always in hexadecimal format.
 
 ## Exceptions
