@@ -30,7 +30,7 @@ It consists of two parts: Generation of the mnemonic sentence and its conversion
 Our library implements a [BIP39 generator](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) in C++. Fully workable on a python3 environment.
 
 ## Interaction with other components
-![diagram](//www.plantuml.com/plantuml/png/RS-_2i8m4CVnFKznTAf31nK7EqYhInq4mGSeCJrieBc4wnNnxKs3Vn2SGlXz-C9LesYMoGqgnDSQ6pG9GDQSwiEbgJVBLGPwXDvfyoEo_V6ytgRjQeDICu1YDt-W1AE70Mv8o5emjz7VFNUjyHF9GiscUDiF0-aH7A7pP0sCI89ay7zOsZYp3u_yMqkm14QPc5BiPLI5rCKBdm00)
+![diagram](http://www.plantuml.com/plantuml/png/RS-_2i8m4CVnFKznTAf31nK7EqYhInq4mGSeCJrieBc4wnNnxKs3Vn2SGlXz-C9LesYMoGqgnDSQ6pG9GDQSwiEbgJVBLGPwXDvfyoEo_V6ytgRjQeDICu1YDt-W1AE70Mv8o5emjz7VFNUjyHF9GiscUDiF0-aH7A7pP0sCI89ay7zOsZYp3u_yMqkm14QPc5BiPLI5rCKBdm00)
 
 ## Python functions
 - ```get_langage()``` : Returns the language of the component.
